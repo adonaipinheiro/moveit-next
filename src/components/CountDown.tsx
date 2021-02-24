@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 // Styles
 import styles from '../styles/components/CountDown.module.css';
 
-export default function CountDown() {
+export default function CountDown(): JSX.Element {
   const [time, setTime] = useState<number>(25 * 60);
   const [active, setActive] = useState<boolean>(false);
 
@@ -13,17 +13,17 @@ export default function CountDown() {
   const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('');
   const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('');
 
-  function startCountDown() {
-    setActive(true);
+  function startAndPauseCountDown(): void {
+    setActive((active) => !active);
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     if (active && time > 0) {
       setTimeout(() => {
         setTime(time - 1);
       }, 1000);
     }
-  }, [active, time])
+  }, [active, time]);
 
   return (
     <div>
@@ -39,11 +39,7 @@ export default function CountDown() {
         </div>
       </div>
 
-      <button 
-        type="button" 
-        className={styles.countDownButton}
-        onClick={startCountDown}
-      >
+      <button type="button" className={styles.countDownButton} onClick={startAndPauseCountDown}>
         Iniciar um ciclo
       </button>
     </div>

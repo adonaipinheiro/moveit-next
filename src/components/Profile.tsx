@@ -1,9 +1,7 @@
-import next from "next";
-
 // Styles
 import styles from '../styles/components/Profile.module.css';
 
-export default function Profile() {
+export default function Profile(): JSX.Element {
   return (
     <div className={styles.profileContainer}>
       <img src="https://github.com/adonaipinheiro.png" alt="Adonai Pinheiro" />
@@ -15,5 +13,5 @@ export default function Profile() {
         </p>
       </div>
     </div>
-  )
+  );
 }

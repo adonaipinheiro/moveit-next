@@ -54,5 +54,5 @@
 }
 
 .countDownButton:hover {
-  background: var(--blue-dark)
+  background: var(--blue-dark);
 }
